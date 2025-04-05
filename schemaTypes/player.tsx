@@ -13,11 +13,34 @@ export const Player = {
         },
         {
             type: "number",
-            name: "attack",
-            title: "Atac",
-            description: "Remat, posicionament ofensio, presa de decisions en atac",
+            name: "rythm",
+            title: "Ritme",
+            description: "Velocitat, acceleració i agilitat",
             validation: Rule => Rule.required(),
         },
+        {
+            type: "number",
+            name: "shooting",
+            title: "Xut",
+            description: "Remat a porta, xut de llarga distància, remat de cap",
+            validation: Rule => Rule.required(),
+        },
+        {
+            type: "number",
+            name: "passing",
+            title: "Passada",
+            description: "Passades curtes, llargues, centrades, visió de joc",
+            validation: Rule => Rule.required(),
+        },
+
+        {
+            type: "number",
+            name: "dribbling",
+            title: "Regat",
+            description: "Driblatge, control de pilota, conducció",
+            validation: Rule => Rule.required(),
+        },
+
         {
             type: "number",
             name: "defense",
@@ -29,23 +52,10 @@ export const Player = {
             type: "number",
             name: "physical",
             title: "Físic",
-            description: "Velocitat i resistència",
+            description: "Resistència, força, salt, equilibri",
             validation: Rule => Rule.required(),
         },
-        {
-            type: "number",
-            name: "vision",
-            title: "Visió",
-            description: "Visió de joc, passada, decisions amb pilota",
-            validation: Rule => Rule.required(),
-        },
-        {
-            type: "number",
-            name: "technique",
-            title: "Tècnica",
-            description: "Control de pilota, driblatge, primer toc",
-            validation: Rule => Rule.required(),
-        },
+
     ],
 
     preview: {
