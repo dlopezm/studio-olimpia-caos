@@ -1,3 +1,3 @@
 import { Player } from "./player";
-
-export const schemaTypes = [Player]
+import { Match } from "./match";
+export const schemaTypes = [Player, Match]

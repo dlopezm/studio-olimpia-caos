@@ -27,6 +27,7 @@ export const Player = {
             type: "number",
             name: "physical",
             title: "Físic",
+            description: "Velocitat i resistència",
             validation: Rule => Rule.required(),
         },
         {
