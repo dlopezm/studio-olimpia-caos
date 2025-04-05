@@ -62,16 +62,18 @@ export const Player = {
         // Name + average of the attributes
         select: {
             title: "name",
-            attack: "attack",
+            rythm: "rythm",
+            shooting: "shooting",
+            passing: "passing",
+            dribbling: "dribbling",
             defense: "defense",
             physical: "physical",
-            vision: "vision",
         },
-        prepare({ title, attack, defense, physical, vision }) {
-            const average = (attack + defense + physical + vision) / 4;
+        prepare({ title, rythm, shooting, passing, dribbling, defense, physical }) {
+            const average = (rythm + shooting + passing + dribbling + defense + physical) / 6
             return {
                 title: title,
-                subtitle: `(${average})`,
+                subtitle: `(${average.toFixed(2)})`,
             };
         },
 
