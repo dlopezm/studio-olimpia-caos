@@ -15,7 +15,7 @@ export const Player = {
             type: "number",
             name: "attack",
             title: "Atac",
-            description: "Remat, posicionament ofensio, presa de decisions en atac",
+            description: "Remat, posicionament ofensiu, presa de decisions en atac",
             validation: Rule => Rule.required(),
         },
         {
@@ -52,15 +52,14 @@ export const Player = {
         // Name + average of the attributes
         select: {
             title: "name",
-            rythm: "rythm",
-            shooting: "shooting",
-            passing: "passing",
-            dribbling: "dribbling",
+            attack: "attack",
             defense: "defense",
             physical: "physical",
+            vision: "vision",
+            technique: "technique",
         },
-        prepare({ title, rythm, shooting, passing, dribbling, defense, physical }) {
-            const average = (rythm + shooting + passing + dribbling + defense + physical) / 6
+        prepare({ title, attack, defense, physical, vision, technique }) {
+            const average = (attack + defense + physical + vision + technique) / 5;
             return {
                 title: title,
                 subtitle: `(${average.toFixed(2)})`,
