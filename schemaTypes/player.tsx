@@ -12,6 +12,14 @@ export const Player = {
             validation: Rule => Rule.required(),
         },
         {
+            type: "boolean",
+            name: "isGuest",
+            title: "Convidat?",
+            description: "Jugador convidat anònim",
+            initialValue: false,
+            default: false,
+        },
+        {
             type: "number",
             name: "attack",
             title: "Atac",
