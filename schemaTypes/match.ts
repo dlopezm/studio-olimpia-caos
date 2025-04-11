@@ -1,3 +1,5 @@
+import ResultAutoInput from "./ResultAutoInput";
+
 const resultToTitle = (result: string) => {
     switch (result) {
         case "white":
@@ -15,7 +17,7 @@ export const Match = {
     name: "match",
     type: "document",
     description:
-        "A match played between two sets of players, with a result and a date.",
+        "Un partit entre dos equips amb data i resultat.",
     fields: [
         {
             type: "date",
@@ -25,18 +27,30 @@ export const Match = {
             validation: Rule => Rule.required(),
         },
         {
-            name : "localTeam",
-            title : "Equip ◻️",
-            type : "array",
-            of : [{ type : "reference", to : [{ type : "player" }] }],
+            name: "localTeam",
+            title: "Equip ◻️",
+            type: "array",
+            of: [{ type: "reference", to: [{ type: "player" }] }],
             validation: Rule => Rule.required(),
         },
         {
-            name : "awayTeam",
-            title : "Equip ◼️",
-            type : "array",
-            of : [{ type : "reference", to : [{ type : "player" }] }],
+            name: "awayTeam",
+            title: "Equip ◼️",
+            type: "array",
+            of: [{ type: "reference", to: [{ type: "player" }] }],
             validation: Rule => Rule.required(),
+        },
+        {
+            name: "localScore",
+            title: "Gols ◻️",
+            type: "number",
+            description: "Gols de l'equip blanc",
+        },
+        {
+            name: "awayScore",
+            title: "Gols ◼️",
+            type: "number",
+            description: "Gols de l'equip negre",
         },
         {
             name: 'result',
@@ -44,14 +58,17 @@ export const Match = {
             type: 'string',
             description: "Guanyador",
             options: {
-              list: [
-                { title: 'Equip ◻️', value: 'white' },
-                { title: 'Equip ◼️', value: 'dark' },
-                { title: 'Empat', value: 'draw' }
-              ],
-              layout: 'radio' 
+                list: [
+                    { title: 'Equip ◻️', value: 'white' },
+                    { title: 'Equip ◼️', value: 'dark' },
+                    { title: 'Empat', value: 'draw' }
+                ],
+                layout: 'dropdown',
+            },
+            components: {
+                input: ResultAutoInput
             }
-          }
+        }
     ],
 
     preview: {
@@ -66,4 +83,16 @@ export const Match = {
             };
         },
     },
+    orderings: [
+        {
+            title: 'De més recent a més antic',
+            name: 'dateDesc',
+            by: [{ field: 'date', direction: 'desc' }],
+        },
+        {
+            title: 'De més antic a més recent',
+            name: 'dateAsc',
+            by: [{ field: 'date', direction: 'asc' }],
+        }
+    ]
 };
